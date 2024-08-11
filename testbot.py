@@ -12,6 +12,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
+from aiogram.types import WebAppInfo
 
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -24,9 +25,12 @@ dp = Dispatcher()
 async def command_start_handler(message: types.Message) -> None:
     user_id = message.from_user.id
     username = message.chat.username
-
     inline_btn = InlineKeyboardMarkup(inline_keyboard=[
                                       [InlineKeyboardButton(text='Join Community', url='https://t.me/SpaceM_crypto')]
+
+    ])
+    inline_btn1 = InlineKeyboardMarkup(inline_keyboard=[
+                                      [InlineKeyboardButton(text='Join Community', web_app=WebAppInfo(url='https://56a7-2a00-1370-81b0-2398-addd-2f21-9f6a-dd58.ngrok-free.app'))]
     ])
     welcome_text = (f"<b>Hi,{username}</b>,\nSpaceM. The world's first marketing crypto agency.Space is an infinite expanse. "
                     f"\nThis is the kind of space you will get for your ideas, projects, and ventures.)"
